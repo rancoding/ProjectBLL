@@ -5,15 +5,10 @@
  */
 package helpers;
 
-import dao.Entrega;
 import dao.Funcionario;
 import dao.Horario;
 import dao.Localtrabalho;
-import dao.Pontohorario;
-import dao.Venda;
 import hibernate.HibernateGenericLibrary;
-import java.util.Date;
-import java.util.Set;
 
 /**
  *
@@ -50,6 +45,13 @@ public class FuncionarioBLL extends Funcionario {
         employee.setActivo(this.isActivo());
         employee.setTipo(this.isTipo());
         employee.setMorada(this.getMorada());
+        
+        //Horario schedule = this.getHorario();
+        employee.setHorario(this.getHorario());
+        
+        //Localtrabalho workingLocation = this.getLocaltrabalho();
+        employee.setLocaltrabalho(this.getLocaltrabalho());
+        
         HibernateGenericLibrary.saveObject(employee);
     }
 }
