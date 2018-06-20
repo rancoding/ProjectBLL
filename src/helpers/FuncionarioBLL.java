@@ -6,9 +6,8 @@
 package helpers;
 
 import dao.Funcionario;
-import dao.Horario;
-import dao.Localtrabalho;
 import hibernate.HibernateGenericLibrary;
+import java.util.List;
 
 /**
  *
@@ -53,5 +52,23 @@ public class FuncionarioBLL extends Funcionario {
         employee.setLocaltrabalho(this.getLocaltrabalho());
         
         HibernateGenericLibrary.saveObject(employee);
+    }
+    
+    /**
+     * Updates an existent brand on the database
+     */
+    public void update()
+    {
+        List<Funcionario> employeeList = HibernateGenericLibrary.executeHQLQuery("FROM Funcionario WHERE idfuncionario = " + this.getIdfuncionario());
+        Funcionario employee = employeeList.get(0);
+        employee.setNome(this.getNome());
+        employee.setUsername(this.getUsername());
+        employee.setPassword(this.getPassword());
+        employee.setDatanascimento(this.getDatanascimento());
+        employee.setSexo(this.getSexo());
+        employee.setActivo(this.isActivo());
+        employee.setTipo(this.isTipo());
+        employee.setMorada(this.getMorada());
+        HibernateGenericLibrary.updateObject(employee);
     }
 }

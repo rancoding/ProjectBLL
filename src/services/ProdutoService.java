@@ -22,7 +22,7 @@ public class ProdutoService {
      * @param hql Search query
      * @return Existent database product
      */
-    private static List<Produto> getProdutoList(String hql)
+    private static List<Produto> getProductList(String hql)
     {
         List<Produto> productList = HibernateGenericLibrary.executeHQLQuery(hql);
         return productList;
@@ -35,7 +35,7 @@ public class ProdutoService {
      */
     public static List<ProdutoBLL> getHelperList(String hql)
     {
-        List<Produto> productList = getProdutoList(hql);
+        List<Produto> productList = getProductList(hql);
         List<ProdutoBLL> helperList = new ArrayList<>();
         
         productList.forEach((product) -> {
