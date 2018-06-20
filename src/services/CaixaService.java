@@ -11,10 +11,7 @@ import hibernate.HibernateGenericLibrary;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Gustavo Vieira
- */
+
 public class CaixaService {
     
     /**
